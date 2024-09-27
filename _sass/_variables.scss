@@ -1,0 +1,35 @@
+
+//
+// VARIABLES
+//
+
+// Colors
+$blue: #4183C4;
+
+// Grays
+$black: #000;
+$darkerGray: #222;
+$darkGray: #333;
+$gray: #666;
+$lightGray: #eee;
+$white: #fff;
+
+//Skylight scheme
+$sk-blue: #00adc4;
+$sk-dark-pink: #92407e;
+$sk-pink: #c1335d;
+$sk-orange: #f38d36;
+$sk-green: #91c575;
+$sk-yellow: #FCDD12;
+
+// Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}

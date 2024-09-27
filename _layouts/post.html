@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<article class="post detailed">
+  <h1>{{ page.title }}</h1>
+  {% include author.html %}
+
+  <div>
+    <p class="author_title">
+      <a href="{{ author.web }}" target="_blank" >
+        {{ author.name }}
+      </a>
+      ·  {{ page.date | date: "%B %e, %Y" }}
+    </p>
+
+    {% if page.last_modified_at %}
+    <p class="author_title" datetime="{{ page.last_modified_at | date_to_xmlschema }}">(Updated: {{ page.last_modified_at | date: "%b %-d, %Y" }})</p>
+    {% endif %}
+    <div class="post-tags">
+      {% if post %}
+        {% assign categories = post.tags %}
+      {% else %}
+        {% assign categories = page.tags %}
+      {% endif %}
+      {% for category in categories %}
+        <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% assign author = site.data.authors[page.author] %}
+
+  <div class="entry">
+    {{ content }}
+  </div>
+  <br>
+
+  {% include disqus.html %}
+</article>
+
+<iframe src="https://cdn.forms-content.sg-form.com/7c3ff81c-be8d-11ea-9e3e-f21c9dad5305" style="width: 100%; height: 600px;"/>
+
+{% include analytics.html %}
